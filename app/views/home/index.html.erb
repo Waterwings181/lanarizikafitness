@@ -1,0 +1,107 @@
+<div class="row" style="max-width:none;background-color:#3F3F3F;height:initial;">
+    <h1 class="text-center">lana rizika</h1>
+</div>
+
+
+<div class="row">
+    <div class="large-12 columns">
+        <h2><%= Article.order('created_at DESC').first.title %></h2>
+        <%= raw(@articles.first.content) %>
+    </div>
+</div>
+
+
+<div class="row" style="max-width:none;background-color:#3F3F3F;height:initial;padding-top:7%;">
+    <div class="large-12 columns">
+        <a href="/pages/about_me">
+            <h2 class="text-center" style="margin-bottom:2%;margin-top:0;">about me</h2>
+        </a>
+    </div>
+</div>
+<div style="background-color:#3F3F3F;padding-bottom:7%;">
+    <div class="row">
+        <div class="large-12 columns" style="padding-left:100px;padding-right:100px;">
+            <!--<img src="https://instagramimages-a.akamaihd.net/profiles/profile_34173443_75sq_1376544496.jpg" alt="Temp Lana About" style="float:left; margin-right:30px;">-->
+            <%= link_to image_tag('aboutme2.JPG', style: 'width:180px;float:left;margin-right:30px;'), home_index_path %>
+            <p style="color:white;">
+            It feels good to move.<br><br>Dedicated to fitness since I started dance class at 
+            age 9…because it always made me feel good to move.  I like feeling strong.  I 
+            like feeling powerful.  I like feeling good in my body. <br><br> Years later, I pursued
+            running. I ran high school track and eventually twice ran the New York Marathon.  
+            Running kept me strong and lean, and I loved my runner’s high.  I realized that with 
+            being fit came a deeper feeling of wellness and balance that permeated my daily life.<br><br>  
+            But I wanted more.  I added weight training 8 years ago to my workout regimen and 
+            haven’t looked back.  I got my Personal Trainer Certification in 2014 and am so 
+            excited to share my passion with you.  I want you to feel this way, too!</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="row" style="max-width:none;height:initial;">
+    <div class="large-12 columns">
+        <h2 class="text-center" style="margin-bottom:2%;">services</h2>
+    </div>
+</div>
+<div class="row" style="max-width:none;height:initial;padding-bottom:1%;">
+    <a href="/pages/private_sessions">
+        <div class="small-4 large-4 columns">
+            <div class="panel" style="background:#C7C7C7;margin-left:10%;">
+              <h3 class="text-center">private sessions</h3>
+              <p>1 on 1 coaching and training designed specifically for you to meet your goals.</p>
+            </div>
+        </div>
+    </a>
+    <a href="/pages/semi_private">
+        <div class="small-4 large-4 columns">
+            <div class="panel" style="background:#C7C7C7;">
+              <h3 class="text-center">semi-private</h3>
+              <p>It has an easy to override visual style, and is appropriately subdued.</p>
+            </div>
+        </div>
+    </a>
+    <a href="/pages/group_classes">
+        <div class="small-4 large-4 columns">
+            <div class="panel" style="background:#C7C7C7;margin-right:10%">
+              <h3 class="text-center">small group training</h3>
+              <p>For groups of 2-5 people, this training capitalizes on the energy of the group!</p>
+            </div>
+        </div>
+    </a>
+</div>
+<div class="row" style="max-width:none;height:initial;padding-bottom:6%;">
+    <a href="/pages/stretching">
+        <div class="small-4 large-4 columns">
+            <div class="panel" style="background:#C7C7C7;margin-left:10%;">
+              <h3 class="text-center">stretching</h3>
+              <p>A 1 hour session to improve flexibility and mobility.</p>
+            </div>
+        </div>
+    </a>
+    <a href="/pages/nutrition_counseling">
+        <div class="small-4 large-4 columns end">
+            <div class="panel" style="background:#C7C7C7;">
+              <h3 class="text-center">nutrition guidance</h3>
+              <p>Understanding meal planning to improve eating habits, lose weight, increase energy, and feel great!</p>
+            </div>
+        </div>
+    </a>
+    <a href="/pages/teens">
+        <div class="small-4 large-4 columns end">
+            <div class="panel" style="background:#C7C7C7;margin-right:10%;">
+              <h3 class="text-center">teens</h3>
+              <p>Strength training for athletic teens aimed to improve overall conditioning and to help avoid injury.</p>
+            </div>
+        </div>
+    </a>
+</div>
+
+<div>
+    <h4 class="text-right">created by olivia orrell-jones</h4>
+    <% if user_signed_in? %>
+        <%= link_to "user links", page_path('user_links'), :style => 'float:right;' %><br>
+        <%= link_to "sign out", destroy_user_session_path, :method => :delete, :style => 'float:right;' %>
+    <% else %>
+        <%= link_to "sign in", new_user_session_path, :method => :add, :style => 'float:right;color:white;' %>
+    <% end %>
+</div>

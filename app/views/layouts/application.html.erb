@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    
+    
+  </head>
+
+  <body>
+    
+    <div class="contain-to-grid sticky" style="opacity:0.8;padding-top:30px;">
+        <p class="text-right" style="color:white;margin-bottom:0;margin-right:67px;">lanarizikafitness@gmail.com</p>
+        <p class="text-right" style="color:white;margin-right:67px;">310.408.4479</p>
+        <nav class="top-bar" data-topbar role="navigation" data-options="is_hover:true;sticky_on:large;">
+          <ul class="title-area">
+            <li class="name">
+              <%= link_to image_tag('logo.png', style: 'position: relative; top: -65px'), home_index_path %>
+            </li>
+             <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+            <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+          </ul>
+        
+          <section class="top-bar-section">
+            <!-- Right Nav Section -->
+            <ul class="right">
+              <li class="active"><%= link_to 'about me', page_path('about_me') %></li>
+              <li class="divider"></li>
+              <li class="active"><a href="/articles">blog</a></li> 
+              <li class="divider"></li>
+              <!-- <li class="has-dropdown"> -->
+              <li class="active">
+                <%= link_to 'services', page_path('services') %>
+                <!-- <a href="#">services</a>
+                <ul class="dropdown">
+                  <li class="active"><%#= link_to 'group classes', page_path('group_classes') %></li>
+                  <li class="active"><%#= link_to 'nutrition counseling', page_path('nutrition_counseling') %></li>
+                  <li class="active"><%#= link_to 'private sessions', page_path('private_sessions') %></li>
+                  <li class="active"><%#= link_to 'semi-private sessions', page_path('semi_private') %></li>
+                  <li class="active"><%#= link_to 'stretching', page_path('stretching') %></li>
+                  <li class="active"><%#= link_to 'teens', page_path('teens') %></li>
+                </ul> -->
+              </li>
+              <li class="divider"></li>
+              <li class="active"><a href="/testimonials">testimonials</a></li> 
+              <li class="divider"></li>
+              <li class="active"><%= link_to 'contact me', page_path('contact_me') %></li>
+            </ul>
+        
+          </section>
+        </nav>
+      </div>
+      
+      
+      <!--
+      <header>
+        <div class="nav">
+          <ul class="main_nav">
+            <li class="home"><%#= link_to image_tag('logo.png', style: 'position: relative; top: -65px'), home_index_path %></li>
+            <li class="blog"><a href="/articles">blog</a></li>
+            <li class="dropdown">
+              <a href="#">services</a>
+              <ul class="services">
+                <li class="active"><%#= link_to 'group classes', page_path('group_classes') %></li>
+                <li class="active"><%#= link_to 'nutrition counseling', page_path('nutrition_counseling') %></li>
+                <li class="active"><%#= link_to 'private sessions', page_path('private_sessions') %></li>
+                <li class="active"><%#= link_to 'semi-private sessions', page_path('semi_private') %></li>
+                <li class="active"><%#= link_to 'stretching', page_path('stretching') %></li>
+                <li class="active"><%#= link_to 'teens', page_path('teens') %></li>
+              </ul>
+            </li>
+            <li class="about_me"><%#= link_to 'about me', page_path('about_me') %></li>
+            <li class="testimonials"><a href="/testimonials">testimonials</a></li>
+            <li class="contact_me"><%#= link_to 'contact me', page_path('contact_me') %></li>
+          </ul>
+        </div>
+      </header>
+      -->
+       <% if notice %><p class="notice"><%= notice %></p><% end %>
+       <% if alert %><p class="alert"><%= alert %></p><% end %>
+
+    <%= yield %>
+
+  </body>
+</html>

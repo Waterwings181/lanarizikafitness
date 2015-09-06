@@ -1,0 +1,20 @@
+<div class="row" style="margin-top:40px;">
+  <div class="large-12 columns">
+    <h1 style="letter-spacing:0; margin-top:0;margin-bottom:0;">Showing Testimonial</h1>
+    <p id="notice"><%= notice %></p>
+    
+    <p>
+      <strong>Quote:</strong>
+      <%= @testimonial.quote %>
+    </p>
+    
+    <p>
+      <strong>Name:</strong>
+      <%= @testimonial.name %>
+    </p>
+    
+    <%= link_to 'Edit', edit_testimonial_path(@testimonial), :class => 'small button radius secondary' %>
+    <%= link_to 'Back', testimonial_path, :class => 'small button radius secondary' %>
+  </div>
+</div>
+

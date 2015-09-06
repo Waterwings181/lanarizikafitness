@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row" style="max-width:none;background-color:#3F3F3F;height:initial;">
+    <div class="large-12 columns">
+        <h1 class="text-center">lana's blog</h1>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<% @articles.each_with_index do |article, index| %>
+    <div class="row" style="padding-left:8%;padding-right:8%;padding-bottom:1%;padding-top:1%;">
+        <div class="large-12 columns">
+            <p class="float:right;"><%= article.created_at.strftime("Posted %b %d, %Y (%l:%M%P)") %></p>
+            <h2 style="margin-bottom:3%;margin-top:0;"><%= article.title %></h2>
+            <%= raw(article.content) %>
+            <% if user_signed_in? %>
+                <ul class="button-group round" style="margin-top:10px;float:right;">
+                  <li><%= link_to 'Show', article, :class => 'tiny button secondary' %></li>
+                  <li><%= link_to 'Edit', edit_article_path(article), :class => 'tiny button secondary' %></li>
+                  <li><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'tiny button secondary' %></li>
+                </ul>
+            <% end %>
+            <% if @articles.length-1 != index %>
+                <hr>
+            <% end %>
+        </div>
+    </div>
+<% end %>
+
+<br>
+
+<% if user_signed_in? %>
+    <div class="row">
+        <div class="large-12 columns">
+            <div style="margin-left:6.5%;"><%= link_to 'New Article', new_article_path, :class => 'button radius secondary' %></div>
+        </div>
+    </div>
+<% end %>
+

@@ -1,0 +1,10 @@
+<div class="row">
+    <div class="large-12 columns">
+        <p>welcome <%= @email %>!</p>
+        
+        <p>You can confirm your account email through the link below:</p>
+        
+        <%= link_to 'confirm my account', confirmation_url(@resource, confirmation_token: @token), class: 'button radius secondary' %>
+    </div>
+</div>
+        

@@ -1,0 +1,52 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row" style="max-width:none;background-color:#3F3F3F;height:initial;">
+    <div class="large-12 columns">
+        <h1 class="text-center">Testimonials</h1>
+    </div>
+</div>
+
+<div class="row" style="margin-top:100px;margin-bottom:10px;">
+  <div class="large-12 columns">
+    <% @testimonials.each_with_index do |testimonial, index| %>
+      <% if index%2==0 %>
+        <div class="row">
+          <div class="large-6 columns">
+            <blockquote><%= testimonial.quote %>
+            <cite class="text-right"><%= testimonial.name %></cite></blockquote>
+            <% if user_signed_in? %>
+            <ul class="button-group round" style="margin-top:10px;float:right;">
+              <li><%= link_to 'Show', testimonial, :class => 'tiny button secondary' %></li>
+              <li><%= link_to 'Edit', edit_testimonial_path(testimonial), :class => 'tiny button secondary' %></li>
+              <li><%= link_to 'Destroy', testimonial, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'tiny button secondary' %></li>
+            </ul>
+            <% end %>
+          </div>
+      <% else %>
+        <div class="large-6 columns">
+          <blockquote><%= testimonial.quote %>
+          <cite class="text-right"><%= testimonial.name %></cite></blockquote>
+          <% if user_signed_in? %>
+            <ul class="button-group round" style="margin-top:10px;float:right;">
+              <li><%= link_to 'Show', testimonial, :class => 'tiny button secondary' %></li>
+              <li><%= link_to 'Edit', edit_testimonial_path(testimonial), :class => 'tiny button secondary' %></li>
+              <li><%= link_to 'Destroy', testimonial, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'tiny button secondary' %></li>
+            </ul>
+          <% end %>
+        </div>
+        </div>
+      <% end %>
+    <% end %>
+    <% if @testimonials.length % 2 == 1 %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<% if user_signed_in? %>
+  <div class="row">
+      <div class="large-12 columns">
+          <div style="margin-left:7px;"><%= link_to 'New Testimonial', new_testimonial_path, :class => 'button radius secondary' %></div>
+      </div>
+  </div>
+<% end %>
