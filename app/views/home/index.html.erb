@@ -5,9 +5,11 @@
 
 
 <div class="row">
-    <div class="large-12 columns">
-        <h2><%= Article.order('created_at DESC').first.title %></h2>
-        <%= raw(@articles.first.content) %>
+    <div class="large-12 columns" style="padding-bottom:30px;">
+        <% if Article.count > 0 %>
+            <h2><%= Article.order('created_at DESC').first.title %></h2>
+            <p><%= raw(@articles.first.content) %></p>
+        <% end %>
     </div>
 </div>
 
@@ -92,7 +94,6 @@
 <div>
     <h4 class="text-right">created by olivia orrell-jones</h4>
     <% if user_signed_in? %>
-        <%= link_to "user links", page_path('user_links'), :style => 'float:right;' %><br>
         <%= link_to "sign out", destroy_user_session_path, :method => :delete, :style => 'float:right;' %>
     <% else %>
         <%= link_to "sign in", new_user_session_path, :method => :add, :style => 'float:right;color:white;' %>
