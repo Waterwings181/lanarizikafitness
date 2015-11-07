@@ -1,32 +1,23 @@
+<!--home -->
 <div class="image">
     <%= link_to image_tag('jump.JPG', style: 'opacity:0.6;position:relative;width:100%;'), home_index_path %>
     <h1 style="position: absolute; top:200px; left:34%; width:100%; ">lana rizika</h1>
 </div>
 
-
-<div class="row">
-    <div class="large-12 columns" style="padding-bottom:30px;">
-        <% if Article.count > 0 %>
-            <h2><%= Article.order('created_at DESC').first.title %></h2>
-            <p><%= raw(@articles.first.content) %></p>
-        <% end %>
-    </div>
-</div>
-
-
-<div class="row" style="max-width:none;background-color:#3F3F3F;height:initial;padding-top:7%;">
+<!--about me-->
+<div class="row" style="max-width:none;height:initial;padding-top:7%;">
     <div class="large-12 columns">
         <a href="/pages/about_me">
             <h2 class="text-center" style="margin-bottom:2%;margin-top:0;">about me</h2>
         </a>
     </div>
 </div>
-<div style="background-color:#3F3F3F;padding-bottom:7%;">
+<div style="padding-bottom:7%;">
     <div class="row">
         <div class="large-12 columns" style="padding-left:100px;padding-right:100px;">
             <!--<img src="https://instagramimages-a.akamaihd.net/profiles/profile_34173443_75sq_1376544496.jpg" alt="Temp Lana About" style="float:left; margin-right:30px;">-->
             <%= link_to image_tag('aboutme2.JPG', style: 'width:180px;float:left;margin-right:30px;'), home_index_path %>
-            <p style="color:white;">
+            <p style="color:#3F3F3F;">
             It feels good to move.<br><br>Dedicated to fitness since I started dance class at 
             age 9…because it always made me feel good to move.  I like feeling strong.  I 
             like feeling powerful.  I like feeling good in my body. <br><br> Years later, I pursued
@@ -36,17 +27,20 @@
             But I wanted more.  I added weight training 8 years ago to my workout regimen and 
             haven’t looked back.  I got my Personal Trainer Certification in 2014 and am so 
             excited to share my passion with you.  I want you to feel this way, too!</p>
+            <p class="text-right"><a href="/pages/about_me">read more</a></p>
         </div>
     </div>
 </div>
 
-
-<div class="row" style="max-width:none;height:initial;">
+<!--services-->
+<div class="row" style="max-width:none;height:initial;background-color:#3F3F3F;">
     <div class="large-12 columns">
-        <h2 class="text-center" style="margin-bottom:2%;">services</h2>
+        <a href="/pages/services">
+            <h2 class="text-center" style="margin-bottom:2%;">services</h2>
+        </a>
     </div>
 </div>
-<div class="row" style="max-width:none;height:initial;padding-bottom:1%;">
+<div class="row" style="max-width:none;height:initial;padding-bottom:1%;background-color:#3F3F3F;">
     <a href="/pages/services">
         <div class="small-4 large-4 columns">
             <div class="panel" style="background:#C7C7C7;margin-left:10%;">
@@ -72,7 +66,7 @@
         </div>
     </a>
 </div>
-<div class="row" style="max-width:none;height:initial;padding-bottom:6%;">
+<div class="row" style="max-width:none;height:initial;padding-bottom:6%;background-color:#3F3F3F;">
     <a href="/pages/services">
         <div class="small-6 large-6 columns end">
             <div class="panel" style="background:#C7C7C7;margin-left:10%;">
@@ -91,11 +85,58 @@
     </a>
 </div>
 
-<div>
-    <h4 class="text-right">created by olivia orrell-jones</h4>
+
+<!--testimonials -->
+<div class="row">
+    <div class="large-12 columns">
+        <a href="/testimonials">
+            <h2 class="text-center">testimonials</h2>
+        </a>
+        <% if Testimonial.count > 0 %>
+            <blockquote><%= Testimonial.order('created_at DESC').first.quote %>
+            <cite class="text-right"><%= Testimonial.order('created_at DESC').first.name %></cite></blockquote>
+        <% end %>
+    </div>
+</div>
+
+
+<!-- post -->
+<div class="row" style="max-width:none;height:initial;padding-bottom:6%;background-color:#3F3F3F;">
+    <div class="large-12 columns" style="padding-bottom:30px;padding-left:100px;">
+        <% if Article.count > 0 %>
+            <h2 class="text-center"><%= Article.order('created_at DESC').first.title %></h2>
+            <p style="color:#fff;"><%= raw(@articles.first.content) %></p>
+        <% end %>
+    </div>
+</div>
+
+<!--contact me-->
+<div class="row">
+    <div class="large-12 columns" style="padding-bottom:30px;">
+        <h2 class="text-center">contact me</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="large-4 columns">
+        <p class="text-center">310-408-4479</p>
+    </div>
+    <div class="large-4 columns">
+ 		<p class="text-center">lanarizikafitness@gmail.com</n>
+ 	</div>
+    <div class="large-4 columns">
+		<p class="text-center">Manhattan Beach, CA</p>
+	</div>
+</div>
+
+</br>
+<p class="text-center">~</p>
+</br>
+
+<div class="row">
+    <h4 class="text-right" style="font-style:italic;">created by olivia orrell-jones</h4>
     <% if user_signed_in? %>
         <%= link_to "sign out", destroy_user_session_path, :method => :delete, :style => 'float:right;' %>
     <% else %>
-        <%= link_to "sign in", new_user_session_path, :method => :add, :style => 'float:right;color:white;' %>
+        <%= link_to "sign in", new_user_session_path, :method => :add, :style => 'float:right;color:#fff;' %>
     <% end %>
 </div>
