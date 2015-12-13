@@ -1,6 +1,11 @@
-<h1>Editing Subscriber</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @subscriber %> |
-<%= link_to 'Back', subscribers_path %>
+<div class="row">
+    <div class="large-12 columns">
+        <h1>editing subscriber</h1>
+        
+        <%= render 'form' %>
+        
+        <%= link_to 'Show', @subscriber, :class => 'small button radius secondary' %> 
+        <%= link_to 'Back', subscribers_path, :class => 'small button radius secondary' %>
+        
+    </div>
+</div>

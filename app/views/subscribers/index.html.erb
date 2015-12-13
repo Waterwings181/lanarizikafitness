@@ -2,33 +2,20 @@
   <div class="large-12 columns">
     <p id="notice"><%= notice %></p>
     
-    <h1 style="margin:0;letter-spacing:5px;">Listing Subscribers</h1>
+    <h1 style="margin:0;letter-spacing:5px;">subscribers</h1>
     <% if user_signed_in? %>
-    
-    <table>
-      <thead>
-        <tr>
-          <th>Email</th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
-    
-      <tbody>
-        <% @subscribers.each do |subscriber| %>
-          <tr>
-            <ul class="button-group round" style="margin-top:10px;float:right;">
-              <li><%= subscriber.email %></li>
-              <li><%= link_to 'Show', subscriber, :class => 'tiny button secondary' %> %></li>
-              <li><%= link_to 'Edit', edit_subscriber_path(subscriber), :class => 'tiny button secondary' %> %></li>
-              <li><%= link_to 'Destroy', subscriber, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'tiny button secondary' %> %></li>
-            </ul>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-    
-    <br>
-  <% end %>
+      <% @subscribers.each do |subscriber| %>
+        <div class = "panel">
+          <%= subscriber.email %>
+          <ul class="button-group round" style="float:right;">
+            <li><%= link_to 'Show', subscriber, :class => 'tiny button secondary' %></li>
+            <li><%= link_to 'Edit', edit_subscriber_path(subscriber), :class => 'tiny button secondary' %></li>
+            <li><%= link_to 'Destroy', subscriber, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'tiny button secondary'%></li>
+          </ul>
+        </div>
+      <% end %>
+      <br>
+    <% end %>
     
     
   </div>
@@ -37,7 +24,7 @@
 <% if user_signed_in? %>
     <div class="row">
         <div class="large-12 columns">
-            <div style="margin-left:6.5%;"><%= link_to 'New Subscriber', new_subscriber_path, :class => 'button radius secondary' %></div>
+            <div><%= link_to 'New Subscriber', new_subscriber_path, :class => 'button radius secondary' %></div>
         </div>
     </div>
 <% end %>
