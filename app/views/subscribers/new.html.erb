@@ -3,7 +3,9 @@
         <h1 style="margin:0;letter-spacing:5px;">new subscriber</h1>
         
         <%= render 'form' %>
-        
-        <%= link_to 'Back', subscribers_path, :class => 'small button radius secondary' %>
+
+        <% if user_signed_in? %>
+            <%= link_to 'Back', subscribers_path, :class => 'small button radius secondary' %>
+        <% end %>
     </div>
 </div>
