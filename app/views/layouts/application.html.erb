@@ -17,15 +17,22 @@
   <body>
     
     <div class="contain-to-grid sticky" style="opacity:0.8;padding-top:30px;">
-        <p class="text-right" style="color:white;margin-bottom:0;margin-right:67px;">lanarizikafitness@gmail.com</p>
-        <p class="text-right" style="color:white;margin-right:67px;">310.408.4479</p>
+      <div class = "row" style="margin-bottom:0; margin-top:10px;">
+        <div class = "large-12 columns">
+          <%= link_to image_tag('facebooklogo.png', style: 'position: relative; top: -25px; float:right; margin-right:45px; width: 3%;'), "https://www.facebook.com/lanarizikafitness/" %>
+          <%= link_to image_tag('instagramlogo.png', style: 'position: relative; top: -25px; float:right; margin-right:5px; width: 3%;'), "https://www.instagram.com/lanarizikafitness/" %>
+        </div>
+      </div>
+       <!-- <a style="float:right;" href="https://www.instagram.com/lanarizikafitness/">image</a>-->
+        <p class="text-right" style="color:#3F3F3F;margin-bottom:0;margin-right:67px;">lanarizikafitness@gmail.com</p>
+        <p class="text-right" style="color:3F3F3F;margin-right:67px;">310.408.4479</p>
         <nav class="top-bar" data-topbar role="navigation" data-options="is_hover:true;sticky_on:large;">
           <ul class="title-area">
             <li class="name">
-              <%= link_to image_tag('logo.png', style: 'position: relative; top: -65px'), home_index_path %>
+              <%= link_to image_tag('logo.png', style: 'position: relative; top: -65px; width: 85%;'), home_index_path %>
             </li>
              <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-            <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+            <!--<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>-->
           </ul>
         
           <section class="top-bar-section">
@@ -41,7 +48,7 @@
               <li class="divider"></li>
               <li class="active"><a href="/articles">blog</a></li> 
               <li class="divider"></li>
-              <li class="active"><%= link_to 'contact me', page_path('contact_me') %></li>
+              <li class="active"><%= link_to 'contact', page_path('contact_me') %></li>
             </ul>
         
           </section>
