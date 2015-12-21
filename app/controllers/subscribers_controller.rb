@@ -1,5 +1,14 @@
 class SubscribersController < ApplicationController
   before_action :set_subscriber, only: [:show, :edit, :update, :destroy]
+  
+  def unsubscribe
+    subscriber = Subscriber.find_by(email: params[:email])
+    subscriber.try(:destroy)
+    respond_to do |format|
+      format.html { redirect_to articles_url, notice: subscriber ? 'Subscriber was successfully destroyed.' : 'Subscriber was already deleted.'}
+      format.json { head :no_content }
+    end
+  end  
 
   # GET /subscribers
   # GET /subscribers.json

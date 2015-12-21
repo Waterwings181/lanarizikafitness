@@ -55,33 +55,8 @@
         </nav>
       </div>
       
-      
-      <!--
-      <header>
-        <div class="nav">
-          <ul class="main_nav">
-            <li class="home"><%#= link_to image_tag('logo.png', style: 'position: relative; top: -65px'), home_index_path %></li>
-            <li class="blog"><a href="/articles">blog</a></li>
-            <li class="dropdown">
-              <a href="#">services</a>
-              <ul class="services">
-                <li class="active"><%#= link_to 'group classes', page_path('group_classes') %></li>
-                <li class="active"><%#= link_to 'nutrition counseling', page_path('nutrition_counseling') %></li>
-                <li class="active"><%#= link_to 'private sessions', page_path('private_sessions') %></li>
-                <li class="active"><%#= link_to 'semi-private sessions', page_path('semi_private') %></li>
-                <li class="active"><%#= link_to 'stretching', page_path('stretching') %></li>
-                <li class="active"><%#= link_to 'teens', page_path('teens') %></li>
-              </ul>
-            </li>
-            <li class="about_me"><%#= link_to 'about me', page_path('about_me') %></li>
-            <li class="testimonials"><a href="/testimonials">testimonials</a></li>
-            <li class="contact_me"><%#= link_to 'contact me', page_path('contact_me') %></li>
-          </ul>
-        </div>
-      </header>
-      -->
-       <% if notice %><p class="notice"><%= notice %></p><% end %>
-       <% if alert %><p class="alert"><%= alert %></p><% end %>
+     <% if notice %><p class="notice"><%= notice %></p><% end %>
+     <% if alert %><p class="alert"><%= alert %></p><% end %>
 
     <%= yield %>
 

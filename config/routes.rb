@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :subscribers
+  resources :subscribers do
+    collection do
+      get 'unsubscribe'
+    end
+  end
   devise_for :users
   resources :testimonials
   get 'home/index'

@@ -8,7 +8,7 @@
     </p>
     
     <%= link_to 'Edit', edit_subscriber_path(@subscriber), :class => 'small button radius secondary' %> 
-    <%= link_to 'Back', subscribers_path, :class => 'small button radius secondary' %>
+    <%= link_to 'Back', user_signed_in? ? subscribers_path : articles_path, :class => 'small button radius secondary' %>
     
   </div>
 </div>
