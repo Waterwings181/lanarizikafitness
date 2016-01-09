@@ -37,29 +37,33 @@
 <!--services-->
 <!--<div class="row" style="max-width:none;height:initial;padding-top:7%;">-->
     
+<a id="services"></a>
 <div class="row" style="max-width:none;height:initial;background-color:#3F3F3F;">
     <div class="large-12 columns">
-        <a href="/pages/services">
             <h2 class="text-center" style="margin-bottom:2%;">services</h2>
-        </a>
     </div>
 </div>
+
 <div class="row" style="max-width:none;height:initial;padding-bottom:1%;background-color:#3F3F3F;">
-    <div class="small-12 large-4 columns">
+    <div class="large-12 columns" style="padding-right:50px;padding-left:50px;">
         <div class="panel" style="background:#C7C7C7;">
           <h3 class="text-center">private training</h3>
           <p>1-on-1 coaching session created specifically for each client. Focus is on meeting 
           client’s fitness goals through proper training, technique and nutrition.</p>
         </div>
     </div>
-    <div class="small-12 large-4 columns">
+</div>
+<div class="row" style="max-width:none;height:initial;padding-bottom:1%;background-color:#3F3F3F;">
+    <div class="large-12 columns" style="padding-right:50px;padding-left:50px;">
         <div class="panel" style="background:#C7C7C7;">
           <h3 class="text-center">small group training</h3>
           <p>Small groups of 2-5 people share in the pains and gains of training together – push 
           each other to bring your best to the mat.</p>
         </div>
     </div>
-    <div class="small-12 large-4 columns">
+</div>
+<div class="row" style="max-width:none;height:initial;padding-bottom:1%;background-color:#3F3F3F;">
+    <div class="large-12 columns" style="padding-right:50px;padding-left:50px;">
         <div class="panel" style="background:#C7C7C7;">
           <h3 class="text-center">stretch</h3>
           <p>A 30- or 60-minute Stretch session will help improve flexibility and mobility, relieve 
@@ -67,15 +71,16 @@
         </div>
     </div>
 </div>
-
-<div class="row" style="max-width:none;height:initial;padding-bottom:6%;background-color:#3F3F3F;">
-    <div class="small-12 large-6 columns end">
+<div class="row" style="max-width:none;height:initial;padding-bottom:1%;background-color:#3F3F3F;">
+    <div class="large-12 columns" style="padding-right:50px;padding-left:50px;">
         <div class="panel" style="background:#C7C7C7;">
           <h3 class="text-center">teens</h3>
           <p>Strength training for teens to increase overall conditioning and ensure balanced muscle development.</p>
         </div>
     </div>
-    <div class="small-12 large-6 columns end">
+</div>
+<div class="row" style="max-width:none;height:initial;padding-bottom:1%;background-color:#3F3F3F;">
+    <div class="large-12 columns" style="padding-right:50px;padding-left:50px;">
         <div class="panel" style="background:#C7C7C7;">
           <h3 class="text-center">nutrition guidance</h3>
           <p>Work together to adjust meals and snacks and create food plans to improve eating habits, lose 
@@ -86,18 +91,16 @@
 
 
 <!--testimonials -->
+<a id="testimonials"></a>
 <div class="row">
     <div class="large-12 columns">
-        <a href="/testimonials">
-            <h2 class="text-center">testimonials</h2>
-        </a>
+        <h2 class="text-center">testimonials</h2>
         <% if Testimonial.count > 0 %>
-            <blockquote><%= Testimonial.order('created_at DESC').first.quote %>
-            <cite class="text-right"><%= Testimonial.order('created_at DESC').first.name %></cite></blockquote>
+            <blockquote style="font-size:16px;"><%= Testimonial.order('created_at DESC').first.quote %>
+            <cite class="text-right" style="font-size:15px;"><%= Testimonial.order('created_at DESC').first.name %></cite></blockquote>
         <% end %>
     </div>
 </div>
-
 
 <!-- post -->
 <div class="row" style="max-width:none;height:initial;padding-bottom:6%;background-color:#3F3F3F;">
@@ -110,6 +113,7 @@
 </div>
 
 <!--contact me-->
+<a id="contact_me"></a>
 <div class="row">
     <div class="large-12 columns" style="padding-bottom:30px;">
         <h2 class="text-center">contact me</h2>
@@ -117,13 +121,13 @@
 </div>
 <div class="row">
     <div class="small-12 large-4 columns">
-        <p class="text-center">310-408-4479</p>
+        <p class="text-center" style="font-size:18px;">310-408-4479</p>
     </div>
     <div class="small-12 large-4 columns">
- 		<p class="text-center">lanarizikafitness@gmail.com</n>
+ 		<p class="text-center" style="font-size:18px;">lanarizikafitness@gmail.com</n>
  	</div>
     <div class="small-12 large-4 columns">
-		<p class="text-center">Manhattan Beach, CA</p>
+		<p class="text-center" style="font-size:18px;">Manhattan Beach, CA</p>
 	</div>
 </div>
 
