@@ -82,3 +82,6 @@ hr {
   border-color:#E76E1F;
 }
 
+.clip {
+    clip: rectangle(10px,10px,10px,10px);
+}

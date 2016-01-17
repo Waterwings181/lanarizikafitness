@@ -40,12 +40,17 @@
 <a id="services"></a>
 <div class="row" style="max-width:none;height:initial;background-color:#3F3F3F;">
     <div class="large-12 columns">
-            <h2 class="text-center" style="margin-bottom:2%;">services</h2>
+        <h2 class="text-center" style="margin-bottom:2%;">services</h2>
     </div>
 </div>
 
-<div class="row" style="max-width:none;height:initial;padding-bottom:1%;background-color:#3F3F3F;">
-    <div class="large-12 columns" style="padding-right:50px;padding-left:50px;">
+
+
+<div class="row" style="max-width:none;height:initial;padding-bottom:1%;background-color:#3F3F3F;padding-right:50px;padding-left:50px;">
+    <!--<div class="small-12 large-6 columns" style="padding-right:0;">
+        <!%= link_to image_tag('IMG_3230.JPG', style: 'opacity:0.6;position:relative;width:100%;'), home_index_path, :class=>'clip' %>
+    </div>-->
+    <div class="large-12 columns" style="padding-left:0;">
         <div class="panel" style="background:#C7C7C7;">
           <h3 class="text-center">private training</h3>
           <p>1-on-1 coaching session created specifically for each client. Focus is on meeting 
@@ -90,20 +95,133 @@
 </div>
 
 
-<!--testimonials -->
-<a id="testimonials"></a>
+<!--about me -->
 <div class="row">
-    <div class="large-12 columns">
-        <h2 class="text-center">testimonials</h2>
-        <% if Testimonial.count > 0 %>
-            <blockquote style="font-size:16px;"><%= Testimonial.order('created_at DESC').first.quote %>
-            <cite class="text-right" style="font-size:15px;"><%= Testimonial.order('created_at DESC').first.name %></cite></blockquote>
-        <% end %>
+    <div class="large-12 columns" style="padding-left:8%;padding-right:8%;padding-up:8%;">
+        <h2 class="text-center">about</h2>
+        <p style="font-size:1.5em;line-height:30px;">
+            Years of dance, running, and weight training have kept Lana feeling strong and fit. It was 
+            after a brief setback in 2014 (she had a stress fracture in her hip) that she fully understood 
+            how vital exercise was to her overall well-being. More importantly, she was inspired to teach 
+            others how to make fitness an enjoyable part of life so they too can realize all its physical 
+            and mental health benefits. Fitness, she believes, is a game changer.<br><br>
+            Lana received her Personal Trainer Certification from NASM and continues her education through 
+            classes, seminars, and various training programs. She weight trains several times a week, mixes 
+            in cardio workouts, and dedicates time to her new passion, boxing!   </p>
     </div>
 </div>
 
-<!-- post -->
+<div class="row">
+    <div class="large-12 columns" style="padding-left:8%;padding-right:8%;padding-bottom:5%;">
+        <h2 class="text-center">about lana rizka fitness</h2>
+        <p style="font-size:1.5em;line-height:30px;"> 
+            Lana Rizika Fitness focuses on providing an hour-long personalized workout created specifically 
+            to meet the client’s fitness goals.
+        </p>
+        <p style="font-size:1.5em;line-height:30px;"> 
+            She incorporates 3 specialties into these workouts: Strength Training, Interval Training, and 
+            Flexibility/Mobility Training.
+        </p>
+        <p style="font-size:1.5em;line-height:30px;"> 
+            <b>Strength Training</b> has multiple benefits and impacts everything from posture to how you 
+            pick up a bag of groceries:   
+            <ul style="font-size:1.35em;line-height:30px;padding-left:30px;">
+                <li>Increase lean muscle mass</li>
+                <li>Boost metabolism</li>
+                <li>Burn more calories as muscles strengthen - even at rest!</li>
+                <li>Tighten core, back, and booty</li>
+                <li>Look toned and sculpted</li>
+            </ul>
+        </p> 
+        <p style="font-size:1.5em;line-height:30px;"> 
+            <b>Interval Training</b> ratchets up your heart rate so you can:   
+            <ul style="font-size:1.35em;line-height:30px;padding-left:30px;">
+                <li>Burn fat</li>
+                <li>Build your endurance</li>
+                <li>Burn more calories in less time</li>
+                <li>Increase aerobic capacity</li>
+            </ul>
+        </p> 
+        <p style="font-size:1.5em;line-height:30px;"> 
+            <b>Flexibility/Mobility Training</b> will help you:   
+            <ul style="font-size:1.35em;line-height:30px;padding-left:30px;">
+                <li>Move, stretch, and reach without pain</li>
+                <li>Attain full range of motion</li>
+                <li>Move more fluidly</li>
+                <li>Workout more efficiently</li>
+                <li>Improve posture</li>
+            </ul>
+        </p> 
+        <p style="font-size:1.5em;line-height:30px;">
+            Lana is passionate about helping clients feel the benefits of physical fitness, which 
+            permeate all areas of life. This takes time and commitment, and Lana is here to coach 
+            you all the way.  You have the power to create the best version of you!
+        </p>
+        <p  style="font-size:1.5em;line-height:30px;">
+            Lana is based in Manhattan Beach, CA, and trains out of her home gym, at the local park, 
+            and at the beach.  
+        </p>
+    </div>
+</div>
+
+
+
+
+<!--testimonials -->
+<div class="row" style="margin-bottom:10px;max-width:none;height:initial;padding-bottom:6%;background-color:#3F3F3F;">
+  <div class="large-12 columns">
+        <h2 class="text-center">testimonials</h2>
+    <% @testimonials.each_with_index do |testimonial, index| %>
+      <% if index%2==0 %>
+        <div class="row">
+          <div class="large-6 columns">
+            <blockquote><%= testimonial.quote %>
+            <cite class="text-right"><%= testimonial.name %></cite></blockquote>
+            <% if user_signed_in? %>
+            <ul class="button-group round" style="margin-top:10px;float:right;">
+              <li><%= link_to 'Show', testimonial, :class => 'tiny button secondary' %></li>
+              <li><%= link_to 'Edit', edit_testimonial_path(testimonial), :class => 'tiny button secondary' %></li>
+              <li><%= link_to 'Destroy', testimonial, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'tiny button secondary' %></li>
+            </ul>
+            <% end %>
+          </div>
+      <% else %>
+        <div class="large-6 columns">
+          <blockquote><%= testimonial.quote %>
+          <cite class="text-right"><%= testimonial.name %></cite></blockquote>
+          <% if user_signed_in? %>
+            <ul class="button-group round" style="margin-top:10px;float:right;">
+              <li><%= link_to 'Show', testimonial, :class => 'tiny button secondary' %></li>
+              <li><%= link_to 'Edit', edit_testimonial_path(testimonial), :class => 'tiny button secondary' %></li>
+              <li><%= link_to 'Destroy', testimonial, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'tiny button secondary' %></li>
+            </ul>
+          <% end %>
+        </div>
+        </div>
+      <% end %>
+    <% end %>
+    <% if @testimonials.length % 2 == 1 %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+<!--
+<a id="testimonials"></a>
 <div class="row" style="max-width:none;height:initial;padding-bottom:6%;background-color:#3F3F3F;">
+    <div class="large-12 columns">
+        <h2 class="text-center">testimonials</h2>
+        <!% if Testimonial.count > 0 %>
+            <blockquote style="font-size:16px;"><!%= Testimonial.order('created_at DESC').first.quote %>
+            <cite class="text-right" style="font-size:15px;"><!%= Testimonial.order('created_at DESC').first.name %></cite></blockquote>
+        <!% end %>
+    </div>
+</div>
+-->
+
+<!-- post -->
+<div class="row">
     <div class="large-12 columns" style="padding-bottom:30px;padding-left:100px;">
         <% if Article.count > 0 %>
             <h2 class="text-center"><%= Article.order('created_at DESC').first.title %></h2>
@@ -114,32 +232,32 @@
 
 <!--contact me-->
 <a id="contact_me"></a>
-<div class="row">
+<div class="row" style="max-width:none;height:initial;padding-bottom:6%;background-color:#3F3F3F;">
     <div class="large-12 columns" style="padding-bottom:30px;">
         <h2 class="text-center">contact me</h2>
     </div>
 </div>
-<div class="row">
+<div class="row" style="max-width:none;height:initial;padding-bottom:6%;background-color:#3F3F3F;">
     <div class="small-12 large-4 columns">
-        <p class="text-center" style="font-size:18px;">310-408-4479</p>
+        <p class="text-center" style="font-size:18px;color:#838383;">310-408-4479</p>
     </div>
     <div class="small-12 large-4 columns">
- 		<p class="text-center" style="font-size:18px;">lanarizikafitness@gmail.com</n>
+ 		<p class="text-center" style="font-size:18px;color:#838383;">lanarizikafitness@gmail.com</n>
  	</div>
     <div class="small-12 large-4 columns">
-		<p class="text-center" style="font-size:18px;">Manhattan Beach, CA</p>
+		<p class="text-center" style="font-size:18px;color:#838383;">Manhattan Beach, CA</p>
 	</div>
 </div>
 
-</br>
-<p class="text-center">~</p>
-</br>
 
-<div class="row">
-    <h4 class="text-right" style="font-style:italic;">created by olivia orrell-jones</h4>
+<div class="row" style="max-width:none;height:initial;padding-bottom:6%;background-color:#3F3F3F;">
+    </br>
+    <!--<p class="text-center">~</p>-->
+    </br>
+    <h4 class="text-right" style="font-style:italic;color:#838383;">created by olivia orrell-jones</h4>
     <% if user_signed_in? %>
         <%= link_to "sign out", destroy_user_session_path, :method => :delete, :style => 'float:right;' %>
     <% else %>
-        <%= link_to "sign in", new_user_session_path, :method => :add, :style => 'float:right;color:#fff;' %>
+        <%= link_to "sign in", new_user_session_path, :method => :add, :style => 'float:right;color:#3F3F3F;' %>
     <% end %>
 </div>
