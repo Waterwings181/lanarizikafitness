@@ -168,6 +168,7 @@
 
 
 <!--testimonials -->
+<a id="testimonials"></a>
 <div class="row" style="margin-bottom:10px;max-width:none;height:initial;padding-bottom:6%;background-color:#3F3F3F;">
   <div class="large-12 columns">
         <h2 class="text-center">testimonials</h2>
@@ -179,9 +180,9 @@
             <cite class="text-right"><%= testimonial.name %></cite></blockquote>
             <% if user_signed_in? %>
             <ul class="button-group round" style="margin-top:10px;float:right;">
-              <li><%= link_to 'Show', testimonial, :class => 'tiny button secondary' %></li>
-              <li><%= link_to 'Edit', edit_testimonial_path(testimonial), :class => 'tiny button secondary' %></li>
-              <li><%= link_to 'Destroy', testimonial, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'tiny button secondary' %></li>
+              <li><%= link_to 'Show', testimonial, :class => 'tiny secondary button' %></li>
+              <li><%= link_to 'Edit', edit_testimonial_path(testimonial), :class => 'tiny secondary button' %></li>
+              <li><%= link_to 'Destroy', testimonial, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'tiny secondary button' %></li>
             </ul>
             <% end %>
           </div>
@@ -191,9 +192,9 @@
           <cite class="text-right"><%= testimonial.name %></cite></blockquote>
           <% if user_signed_in? %>
             <ul class="button-group round" style="margin-top:10px;float:right;">
-              <li><%= link_to 'Show', testimonial, :class => 'tiny button secondary' %></li>
-              <li><%= link_to 'Edit', edit_testimonial_path(testimonial), :class => 'tiny button secondary' %></li>
-              <li><%= link_to 'Destroy', testimonial, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'tiny button secondary' %></li>
+              <li><%= link_to 'Show', testimonial, :class => 'tiny secondary button' %></li>
+              <li><%= link_to 'Edit', edit_testimonial_path(testimonial), :class => 'tiny secondary button' %></li>
+              <li><%= link_to 'Destroy', testimonial, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'tiny secondary button' %></li>
             </ul>
           <% end %>
         </div>
@@ -208,7 +209,6 @@
 
 
 <!--
-<a id="testimonials"></a>
 <div class="row" style="max-width:none;height:initial;padding-bottom:6%;background-color:#3F3F3F;">
     <div class="large-12 columns">
         <h2 class="text-center">testimonials</h2>
@@ -237,7 +237,7 @@
         <h2 class="text-center">contact me</h2>
     </div>
 </div>
-<div class="row" style="max-width:none;height:initial;padding-bottom:6%;background-color:#3F3F3F;">
+<div class="row" style="max-width:none;height:initial;background-color:#3F3F3F;">
     <div class="small-12 large-4 columns">
         <p class="text-center" style="font-size:18px;color:#838383;">310-408-4479</p>
     </div>
@@ -248,7 +248,29 @@
 		<p class="text-center" style="font-size:18px;color:#838383;">Manhattan Beach, CA</p>
 	</div>
 </div>
-
+<!--style="" -->
+<%= form_tag('/contact', method: 'POST', style: 'max-width:none;height:initial;padding-bottom:6%;background-color:#3F3F3F;') do %>
+    <div class="row">
+        <div class="medium-6 columns">
+            <%= label_tag(:name, 'Full Name:', style: 'color:#838383;') do %>
+                <%= text_field_tag(:name, nil, placeholder: 'Name') %>
+            <% end %>
+        </div>
+        <div class="medium-6 columns">
+            <%= label_tag(:email, "email:", style: 'color:#838383;') do %>
+                <%= text_field_tag(:email, nil, placeholder: 'user@email.com') %>
+            <% end %>
+        </div>
+    </div>
+    <div class="row">
+        <div class="large-12 columns">
+            <%= label_tag(:messge, "messge:", style: 'color:#838383;') do %>
+                <%= text_field_tag(:message) %>
+            <% end %>
+        </div>
+        <%= submit_tag('Submit', class: 'radius button') %>
+    </div>
+<% end %>
 
 <div class="row" style="max-width:none;height:initial;padding-bottom:6%;background-color:#3F3F3F;">
     </br>

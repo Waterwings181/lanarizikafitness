@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :testimonials
   get 'home/index'
+  post '/contact' => 'home#contact'
 
   resources :articles
   # The priority is based upon order of creation: first created -> highest priority.
