@@ -3,6 +3,6 @@ class ContactMailer < ApplicationMailer
         @email = email
         @message = message
         @name = name
-        mail(to: "olie263@me.com", subject: "New Message From #{name}", reply_to: @email)
+        mail(to: "lanarizika@gmail.com", subject: "New Message From #{name}", reply_to: @email)
     end
 end
