@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
-#not working!!!
-ruby "2.2.4"
+#not working!!! (but is)
+ruby "2.2.1"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 # Use SCSS for stylesheets
