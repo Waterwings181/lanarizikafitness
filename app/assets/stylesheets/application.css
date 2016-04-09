@@ -33,7 +33,6 @@ h2 {
     font-weight:lighter;
     margin-top:8%;
     margin-bottom:5%;
-    color:#838383;
 }
 
 h3 {
@@ -42,14 +41,6 @@ h3 {
 
 h4 {
     font-size:1em;
-}
-
-p {
-    color:white;
-}
-
-p {
-    color:#3F3F3F;
 }
 
 div row {
@@ -68,7 +59,6 @@ div row {
 }
 
 a:hover {
-    color: #fff;
     background-color: transparent !important;
 }
 
@@ -84,4 +74,8 @@ hr {
 
 .clip {
     clip: rectangle(10px,10px,10px,10px);
+}
+
+#about:hover {
+    color:black;
 }
