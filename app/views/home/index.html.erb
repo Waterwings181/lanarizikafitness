@@ -1,43 +1,38 @@
 
 <!-- changed opacity, moved about paragraph to align with photograph (first and second paragraph)-->
-<link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
-<link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
-<script src="/public/owl.carousel.min.js"></script>
+<script src="/owl.carousel.min.js"></script>
+<link rel="stylesheet" href="/owl.theme.default.min.css">
 <!--home -->
 <div class="image">
-    <%= link_to image_tag('homepage.jpg', style: 'position:relative;width:100%;'), home_index_path %>
+    <%= link_to image_tag('homepage.jpg', style: 'position:relative;width:100%;'), root_path %>
 </div>
+
 <div class="owl-carousel">
-    <div class="item"><h4>1</h4></div>
-    <div class="item"><h4>2</h4></div>
-    <div class="item"><h4>3</h4></div>
-    <div class="item"><h4>4</h4></div>
-    <div class="item"><h4>5</h4></div>
-    <div class="item"><h4>6</h4></div>
-    <div class="item"><h4>7</h4></div>
-    <div class="item"><h4>8</h4></div>
-    <div class="item"><h4>9</h4></div>
-    <div class="item"><h4>10</h4></div>
-    <div class="item"><h4>11</h4></div>
-    <div class="item"><h4>12</h4></div>
+    <div class="item"><%= link_to image_tag('carousel1.jpg', style: 'height:160px;'), root_path %></div>
+    <div class="item"><%= link_to image_tag('carousel2.jpg', style: 'height:160px;'), root_path %></div>
+    <div class="item"><%= link_to image_tag('carousel3.jpg', style: 'height:160px;'), root_path %></div>
+    <div class="item"><%= link_to image_tag('carousel4.jpg', style: 'height:160px;'), root_path %></div>
+    <div class="item"><%= link_to image_tag('carousel5.jpg', style: 'height:160px;'), root_path %></div>
 </div>
 <script>
     $(document).ready(function(){
-        $(".owl-carousel").owlCarousel();
-        loop:true,
-        margin:10,
-        nav:true,
-        responsive:{
-            0:{
-                items:1
-            },
-            600:{
-                items:3
-            },
-            1000:{
-                items:5
+        $(".owl-carousel").owlCarousel({     
+                loop:true,
+                margin:10,
+                nav:true,
+                responsive:{
+                    0:{
+                        items:1
+                    },
+                    600:{
+                        items:3
+                    },
+                    1000:{
+                        items:5
+                    }
+                }
             }
-        }
+        );
     });
 </script>
 <!--about me-->
@@ -86,7 +81,7 @@
 <div class="row" style="max-width:none;height:initial;margin:0;">
     <div class="large-6 columns" style="margin:0;padding:0;">
         <div class="image">
-            <%= link_to image_tag('smallgroup.jpg', style: 'position:relative;width:100%;'), home_index_path %>
+            <%= link_to image_tag('smallgroup.jpg', style: 'position:relative;width:100%;'), root_path %>
             <!--<h1 style="position: absolute; top:200px; left:15%; width:85%; ">welcome to lana rizika fitness</h1>-->
         </div>
     </div>
@@ -327,8 +322,8 @@
 <div class="row">
     <div class="large-12 columns" style="padding-bottom:30px;padding-left:100px;">
         <% if Article.count > 0 %>
-            <h2 class="text-center"><%= Article.order('created_at DESC').first.title %></h2>
-            <p style="font-size:2em;"><%= raw(@articles.first.content) %></p>
+            <h2 class="text-center"><%= @articles.first.title %></h2>
+            <p style="font-size:1.75em;"><%= raw(@articles.first.content) %></p>
         <% end %>
     </div>
 </div>
