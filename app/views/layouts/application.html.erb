@@ -17,10 +17,30 @@
       }
     </style>
   </head>
-
+  <script>
+    $(document).ready(function() {
+        var stickyNavTop = $('.entire-nav').offset().top;
+         
+        var stickyNav = function(){
+        var scrollTop = $(window).scrollTop();
+              
+        if (scrollTop > stickyNavTop) { 
+            $('.entire-nav').addClass('mysticky');
+        } else {
+            $('.entire-nav').removeClass('mysticky'); 
+        }
+      };
+       
+      stickyNav();
+       
+      $(window).scroll(function() {
+          stickyNav();
+      });
+    });
+  </script>
   <body>
     
-    <div>
+    <div class="entire-nav" style="top:0;background-color:white;">
       <div class="row" style="margin-right:10px;">
         <div class = "large-3 columns">
           <%= link_to image_tag('lana_logo_crop.jpg', style: 'padding-top: 8px;'), root_path %>
@@ -38,7 +58,6 @@
           </div>
           <div class="row">
             <div class="large-12 columns" style="padding-left:0; padding-right:0;">
-
                 <div class="top-bar" id="nav-menu">
                   <div class="top-bar-right">
                     <ul class="vertical medium-horizontal menu" data-dropdown-menu>
@@ -57,12 +76,12 @@
         </div>
       </div>
        <!-- <a style="float:right;" href="https://www.instagram.com/lanarizikafitness/">image</a>-->
-      </div>
+    </div>
       
-     <% if notice %><p class="notice"><%= notice %></p><% end %>
-     <% if alert %><p class="alert"><%= alert %></p><% end %>
+      <% if notice %><p class="notice"><%= notice %></p><% end %>
+      <% if alert %><p class="alert"><%= alert %></p><% end %>
 
-    <%= yield %>
+      <%= yield %>
 
   </body>
 </html>

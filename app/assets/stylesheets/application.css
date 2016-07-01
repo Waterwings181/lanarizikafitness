@@ -20,6 +20,15 @@
     background-color: #ccc;
 }
 
+.mysticky {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    border-top: 0;
+}
+
 h1 {
     font-family:"Avant Garde Gothic";
     color:#E76E1F;
