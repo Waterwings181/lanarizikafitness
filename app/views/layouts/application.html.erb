@@ -59,16 +59,22 @@
           <div class="row">
             <div class="large-12 columns" style="padding-left:0; padding-right:0;">
                 <div class="top-bar" id="nav-menu">
-                  <div class="top-bar-right">
-                    <ul class="vertical medium-horizontal menu" data-dropdown-menu>
-                      <li><%= link_to 'home', root_path, style: 'font-size:1.5em;' %></li>
-                      <!--<li><!%= link_to 'Check teachers', home_index_path(%["#services"]) %></li>-->
-                      <li><a href="/#services" style="font-size:1.5em;">services</a></li>
-                      <li><a href="/#about" style="font-size:1.5em;">about</a></li>
-                      <li><a href="/#testimonials" style="font-size:1.5em;">testimonials</a></li> 
-                      <li><a href="/articles" style="font-size:1.5em;">blog</a></li> 
-                      <li><a href="/#contact_me" style="font-size:1.5em;">contact</a></li>
-                    </ul>
+                  <span data-responsive-toggle="responsive-menu" data-hide-for="medium">
+                    <button class="menu-icon dark" type="button" data-toggle></button>
+                    <strong style="font-size:17px;">Menu</strong>
+                  </span>
+                  <div id="responsive-menu">
+                    <div class="top-bar-right">
+                      <ul class="vertical medium-horizontal menu" data-dropdown-menu>
+                        <li><%= link_to 'home', root_path, style: 'font-size:1.5em;' %></li>
+                        <!--<li><!%= link_to 'Check teachers', home_index_path(%["#services"]) %></li>-->
+                        <li><a href="/#services" style="font-size:1.5em;">services</a></li>
+                        <li><a href="/#about" style="font-size:1.5em;">about</a></li>
+                        <li><a href="/#testimonials" style="font-size:1.5em;">testimonials</a></li> 
+                        <li><a href="/articles" style="font-size:1.5em;">blog</a></li> 
+                        <li><a href="/#contact_me" style="font-size:1.5em;">contact</a></li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
             </div>
